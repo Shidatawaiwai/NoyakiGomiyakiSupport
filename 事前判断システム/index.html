@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width = device-width,initial-scale = 1">
+        <title>事前判断システム</title>
+        <link rel="stylesheet" href="../CSS/KakenPCorMobile.css">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css">   <!--Leafletライブラリのcss読み込み -->
+    </head>
+
+    <body>
+        <!-- ローディング画面用要素 -->
+        <div id="Loading"></div>
+        <p class="Breadcrumbs"><a href="./../index.html">安全野焼きシステム</a>＞事前判断システム</p>
+        <h1 class="Title">事前判断システム</h1>
+        <div class="input">
+            <h1>気象情報から野外焼却の延焼危険性，煤煙が広がる方向を予測</h1>
+           
+            <!--湿度がhumidity(number1),風力がwind(number2)-->
+            <h2>気象情報を自動で入手</h2>
+            <div class = "main">
+                <p>GPS等からの位置情報をもとに気象情報を入手します</p>
+                <p><input type="button" value="実行" onclick="GPS()"></p>
+                
+                <!--
+                    <p id="decidewind"></p>
+                    <p id="decidehumidity"></p>
+                -->
+                
+            </div>
+
+            
+            <p>位置情報を入手できない場合，現在位置以外で野外焼却を行う場合↓<br>地図から位置を選択<input type="button" onclick="btnManual()" id="manualBtn"></p>
+            <div id="manual">
+                <p>下の地図から現在位置をタップして直下にある実行ボタンを押してください</p>
+                <p><input type="button" value="実行" onclick="btnclicked()"></p>
+
+                <div id="inputMap"></div> 
+                
+    
+            </div>
+
+        </div>
+        
+        <div class="resluts">
+            <h1>結果</h1>
+            <div class = "main">
+                <p>
+                    緯度：<span id="latitude"></span>度
+                    <br>経度：<span id="longitude"></span>度
+                </p>
+                <p class="important">
+                    湿度：<span id="humidity"></span>%
+                    <br>風速：<span id="windP"></span>m/s
+                    <br>風向：<span id="windD"></span>
+                </p>
+            </div>
+            
+            <h2>延焼危険性の有無</h2>
+            <p id="alert" class = "main important">
+            </p>
+            
+            <h2>煤煙が広がる方向の予測</h2>
+            <div class="main smoke">
+                <p>北</p>
+                <div id="allow"></div>
+                <p>南</p>
+                <p>矢印の向きは風が吹く方向を，矢印の大きさは風速を表しています<br>
+                ※風速1mあたり50px</p>
+                
+                <div id = "map"></div>
+                
+            </div> 
+        </div>
+
+        <p id="ankert"><a href="https://forms.office.com/Pages/ResponsePage.aspx?id=07VbxZj7okm9Yto1xwcA4sP0-TVJLslEjJ24A2iQL8FUMDFBOERCTFBMV045S1lBM1JVVUhHMlNKSC4u">こちら</a>
+            から本システムに関する評価をしていただけると助かります
+        </p>
+        
+
+
+        <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
+        <!--Leafletライブラリのjs読み込み -->
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <!--jQueryライブラリの読み込み-->
+        <script src="./js/Interface/NowLoading.js"></script><!--NowLoadingする関数の読み込み-->
+        <script src="./js/Interface/manual.js"></script><!--手動入力部の表示非表示-->
+        <script src="./js/apperMap.js"></script> <!-- 地図を表示する関数の読み込み　-->
+        <script src="./js/weatherApi.js"></script>  <!-- 気象Apiを呼び出す関数の読み込み　-->
+        <script src ="./js/main.js"></script> <!--メインの処理 -->
+        
+        
+
+        <noscript>
+            <p>javascriptが無効になっている可能性があります<br>有効にしてください</p>
+        </noscript>
+    </body>
+
+</html>

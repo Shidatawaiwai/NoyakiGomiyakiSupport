@@ -1,0 +1,165 @@
+/*これはいと美しきCSSなり*/
+body{
+    font-size: 30px;
+    font-family: sans-serif;
+    text-align: center;
+}
+h1{
+    margin : 15px;
+    border-bottom: 1px solid #000;
+}
+h2{
+    margin-bottom: 0%;
+}
+
+.Breadcrumbs{
+    text-align: left;
+    color: #000;
+    font-size: 0.45em;
+    margin: 0%;
+}
+
+.Title{
+    text-align: left;
+    font-size: 1.2em;
+    margin-top: 0%;
+}
+
+p{
+    font-size: 0.5em;
+}
+
+/*.main{
+    font-size: 0.5em;
+}mainClass不要説*/
+
+#manual{
+    background-color: #ffffff;
+    border: solid 10px antiquewhite;
+}
+
+input[value="実行"]{
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 240px;
+    padding: 3px 10px;
+    color: #ffffff;
+    transition: 0.3s ease-in-out;
+    font-weight: 600;
+    background: #2c2c2c;
+    filter: drop-shadow(0px 2px 4px #ccc);
+    border-radius: 3px;
+    border-color: #2c2c2c;
+    font-size: 1.3em;
+    
+}
+.main input:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px -5px rgb(0 0 0 / 15%), 0 0 5px rgb(0 0 0 / 10%);
+}
+
+.resluts .important{
+    font-size: 0.6em;
+    font-weight: bold;
+    background-color: rgb(2, 11, 53);
+    color: #ffffff;
+    width: 50%;
+    margin: 0 auto;
+    border-radius: 15px;
+}
+
+
+
+
+/*矢印*/
+.smoke{
+    background-color: #fff;
+    border: solid 10px #E1E1E1;
+}
+
+#allow {
+    display: inline-block;
+    vertical-align: middle;
+    color: #333;
+    line-height: 1;
+    position: relative;
+    width: 2px;
+    height: 0px;    /*jsで制御*/
+    background: currentColor;
+}
+
+
+/*矢印の頭の部分*/
+#allow::before {
+    content: '';
+    width: 30px;
+    height: 30px;
+    border: 2px solid currentColor;
+    border-left: 0;
+    border-bottom: 0;
+    transform: rotate(-45deg);
+    transform-origin: top right;
+    position: absolute;
+    top: -0.05em;
+    right: 50%;
+    box-sizing: border-box;
+}
+
+/*地図*/
+
+#map, #inputMap{
+    position: relative;
+    z-index: 1;
+    margin: 0 auto;
+}
+
+
+
+/*PC用*/
+@media(min-width:601px){
+    h1{
+        font-size : 1em;
+    }
+    h2{
+        font-size: 0.8em;
+    }
+    
+    .input{
+        float: inline-start;
+        width: 600px;
+        background-color: antiquewhite;
+    }
+    .resluts{
+        float: inline-start;    /*横に置く*/
+        width: 600px;
+        background-color: #E1E1E1;
+    }
+    #ankert{
+        clear: left;
+    }
+    
+}
+
+
+/*Mobile用*/
+@media(max-width:600px)  {
+    h1{
+        font-size : 0.7em;
+    }
+    h2{
+        font-size : 0.6em;
+    }
+    .input{
+        margin: 0 auto;
+        width: 98%;
+        background-color: antiquewhite;
+    }
+    .resluts{
+        margin: 0 auto;
+        width: 98%;
+        background-color: #E1E1E1;
+    }
+}
